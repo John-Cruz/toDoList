@@ -16,7 +16,7 @@ TO-D0
 
   styling index page
 
-  AJAX
+  AJAX (only on the lists page)
     dragon drop
     activity complete
 
