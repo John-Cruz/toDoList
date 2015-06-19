@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require html.sortable
 //= require foundation
 //= require_tree .
 
@@ -19,3 +20,11 @@
 $(function() {
   $(document).foundation();
 });
+
+var ready;
+ready = function(){
+    // call sortable on our div with the sortable class
+    $('.sortable').sortable();
+}
+
+$(document).ready(ready);

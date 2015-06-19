@@ -16,8 +16,18 @@
  *= require_tree .
  */
 
-
-
  .activity{
    background: #D8D8D8;
+   border: 1px solid black;
  }
+
+ .sortable-placeholder {
+  border: 1px dashed #CCC;
+  background-color: #f9f9f9;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.sortable {
+  display: list-item;
+}
