@@ -18,13 +18,37 @@
 
 
 $(function() {
+  $(".large-2.columns.small-3.button.tiny.success").click(
+    function() {
+      item_id = this.id
+      $.ajax({
+        url: "http://localhost:3000/complete/" + item_id,
+        type: "PATCH",
+      });
+    }
+  )
+})
+
+$(function() {
   $(document).foundation();
 });
 
-var ready;
+
+var ready, set_positions;
+
+set_positions = function(){
+    // loop through and give each task a data-pos
+    // attribute that holds its position in the DOM
+    $('.row.activity').each(function(i){
+        $(this).attr("data-pos",i+1);
+    });
+}
+
 ready = function(){
-    // call sortable on our div with the sortable class
+    // call set_positions function
+    set_positions();
     $('.sortable').sortable();
 }
+
 
 $(document).ready(ready);

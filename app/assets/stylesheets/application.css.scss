@@ -12,13 +12,14 @@
  *
  *= require_self
  *= require font-awesome
- *= require foundation
  *= require_tree .
+ *= require foundation
  */
 
- .activity{
+.activity{
    background: #D8D8D8;
    border: 1px solid black;
+   margin: 5px !important;
  }
 
  .sortable-placeholder {
