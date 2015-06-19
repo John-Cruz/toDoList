@@ -16,7 +16,7 @@ After completing this assignment, you should...
 
 ## Deliverables
 
-* **An ERD.** Before writing any code, review the requirements below and draw a data structure diagram for this project.
+* **~~An ERD.~~** ~~Before writing any code, review the requirements below and draw a data structure diagram for this project.~~
 * **A GitHub organization.** Create an organization in github to represent your team for this project.  Give all team members full rights.
 * **A repository.** Create a repository in your github organization.
 * **A Heroku app.** Your application should be deployed and running on Heroku.
