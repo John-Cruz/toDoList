@@ -15,7 +15,7 @@
       <section class="top-bar-section">
         <ul class="right">
           <li class="divider"></li>
-            <%= link_to 'New Activity', new_activity_path class: "button tiny success" %>
+            <%= link_to 'New Activity', new_activity_path, class: "button tiny success" %>
         </ul>
       </section>
     </nav>
@@ -26,8 +26,8 @@
 <div class="large-3 columns ">
   <div class="panel">
     <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
-    <h5><%= user.name %></h5>
-      <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+    <h5>User Name Placeholder</h5>
+      <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true"><br>
       <section class="section">
         <h5 class="title"><a href="#">Recreation</a></h5>
       </section>
@@ -46,14 +46,14 @@
 
 <div class="large-6 columns">
   <% @activities.each do |activity| %>
-      <div class="row">
-        <div class="large-2 columns small-3">Complete Button</div>
+      <div class="row" id="activity">
+        <div class="large-2 columns small-3 button tiny success">Complete Button</div>
         <div class="large-10 columns">
-          <p><strong><%= activity.name %></strong><%= activity.description %></p>
+          <p><strong><%= activity.name %> : </strong> <%= activity.description %></p>
           <ul class="inline-list">
-            <li><%= activity.due_date %> | </li>
-            <li>Days Active:  | </li>
-            <li><%= link_to 'Edit Task', edit_activity_path(activity) %> | </li>
+            <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y - %l:%M%p ") %> | </li>
+            <li>Days Active: | </li>
+            <li><%= link_to 'Edit Task', edit_activity_path(activity), class: "button tiny"  %> </li>
           </ul>
         </div>
       </div>
