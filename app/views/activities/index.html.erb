@@ -1,35 +1,78 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<h1>Listing Activities</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Name</th>
-      <th>Due date</th>
-      <th>Description</th>
-      <th>Position</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.category %></td>
-        <td><%= activity.name %></td>
-        <td><%= activity.due_date %></td>
-        <td><%= activity.description %></td>
-        <td><%= activity.position %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="large-12 columns">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <%= link_to 'To Do List', root_path %>
+          </h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+            <%= link_to 'New Activity', new_activity_path class: "button tiny success" %>
+        </ul>
+      </section>
+    </nav>
+    <br>
+  </div>
+</div>
 
-<br>
+<div class="large-3 columns ">
+  <div class="panel">
+    <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
+    <h5><%= user.name %></h5>
+      <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+      <section class="section">
+        <h5 class="title"><a href="#">Recreation</a></h5>
+      </section>
+      <section class="section">
+        <h5 class="title"><a href="#">Home</a></h5>
+      </section>
+      <section class="section">
+        <h5 class="title"><a href="#">Groceries</a></h5>
+      </section>
+      <section class="section">
+        <h5 class="title"><a href="#">Work</a></h5>
+      </section>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'New Activity', new_activity_path %>
+<div class="large-6 columns">
+  <% @activities.each do |activity| %>
+      <div class="row">
+        <div class="large-2 columns small-3">Complete Button</div>
+        <div class="large-10 columns">
+          <p><strong><%= activity.name %></strong><%= activity.description %></p>
+          <ul class="inline-list">
+            <li><%= activity.due_date %> | </li>
+            <li>Days Active:  | </li>
+            <li><%= link_to 'Edit Task', edit_activity_path(activity) %> | </li>
+          </ul>
+        </div>
+      </div>
+    <hr/>
+  <% end %>
+</div>
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr/>
+    <div class="row">
+      <div class="large-5 columns">
+        <p>© Copyright no one at all.</p>
+      </div>
+      <div class="large-7 columns">
+        <ul class="inline-list right">
+          <li><a href="#">Section 1</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
