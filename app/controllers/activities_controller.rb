@@ -6,6 +6,12 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+  def complete
+    activity = Activity.find(params[:id])
+    activity.update(complete: true)
+    @id = params[:id]
+  end
+
   # GET /activities/1
   def show
   end

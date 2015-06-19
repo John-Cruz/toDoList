@@ -16,8 +16,17 @@
 //= require_tree .
 
 
-
-
+$(function() {
+  $(".large-2.columns.small-3.button.tiny.success").click(
+    function() {
+      item_id = this.id
+      $.ajax({
+        url: "http://localhost:3000/complete/" + item_id,
+        type: "PATCH",
+      });
+    }
+  )
+})
 
 $(function() {
   $(document).foundation();
