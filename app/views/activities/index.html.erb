@@ -1,7 +1,5 @@
 <div id="notice"><%= notice %></div>
 
-
-
 <div class="row">
   <div class="large-12 columns">
     <nav class="top-bar" data-topbar>
@@ -49,13 +47,13 @@
     <div class="row activity" data-id="<%= activity.id %>">
       <div class="large-10 columns ">
         <p><strong><%= activity.name %> : </strong> <%= activity.description %></p>
-        <ul class="inline-list">
-          <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y - %l:%M%p ") %> | </li>
-          <li>Days Active: | </li>
+        <ul>
+          <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y - %l:%M%p ") %></li>
+          <li>Days Active:  </li>
           <li><%= link_to 'Edit Task', edit_activity_path(activity), class: "button tiny"  %> </li>
         </ul>
       </div>
-      <div class="large-2 columns small-3 button tiny success" id="<%= activity.id %>">Task Complete</div>
+      <div class="large-2 columns small-3 button tiny success" id="<%= activity.id %>">Mark Complete</div>
     </div>
   <% end %>
 </div>
