@@ -1,6 +1,7 @@
 rails g scaffold Activity category:references name:string due_date:datetime description:text position:integer
 rails g model Category name:string
 rails g migration AddCompleteToActivities
+rails g migration ChangePositionToPriority
 
 TO-D0
 
@@ -14,7 +15,10 @@ TO-D0
   controller
     # tests
 
-  styling index page
+  styling
+    # index page
+      modal for new activity
+      side list for completed tasks
 
   AJAX (only on the lists page)
     dragon drop

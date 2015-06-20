@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619182613) do
+ActiveRecord::Schema.define(version: 20150620185532) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "name"
     t.datetime "due_date"
     t.text     "description"
-    t.integer  "position"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "complete"
+    t.integer  "priority"
   end
 
   add_index "activities", ["category_id"], name: "index_activities_on_category_id"
