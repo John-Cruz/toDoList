@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'activities#index'
-  resources :activities
+
+  resources :activities do
+    put :sort, on: :collection
+  end
+
   patch 'complete/:id' => 'activities#complete'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

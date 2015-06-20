@@ -6,6 +6,14 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+  def sort
+    params[:order].each do |key,value|
+      Activity.find(value[:id]).update_attribute(:position, value[:position])
+    end
+    render :nothing => true
+  end
+
+
   def complete
     activity = Activity.find(params[:id])
     activity.update(complete: true)
@@ -59,6 +67,6 @@ class ActivitiesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def activity_params
-      params.require(:activity).permit(:category_id, :name, :due_date, :description, :position)
+      params.require(:activity).permit(:category_id, :name, :due_date, :description, :position, :order)
     end
 end

@@ -9,4 +9,6 @@ class Activity < ActiveRecord::Base
 
   validates :position, numericality: { only_integer: true }
 
+  default_scope { order("position ASC") }
+
 end
