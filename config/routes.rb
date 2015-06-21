@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :users
   root 'activities#index'
 
   resources :activities do

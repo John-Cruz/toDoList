@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620185532) do
+ActiveRecord::Schema.define(version: 20150621214840) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "category_id"
@@ -22,12 +22,21 @@ ActiveRecord::Schema.define(version: 20150620185532) do
     t.datetime "updated_at",  null: false
     t.boolean  "complete"
     t.integer  "priority"
+    t.integer  "user_id"
   end
 
-  add_index "activities", ["category_id"], name: "index_activities_on_category_id"
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

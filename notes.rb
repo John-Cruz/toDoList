@@ -2,6 +2,8 @@ rails g scaffold Activity category:references name:string due_date:datetime desc
 rails g model Category name:string
 rails g migration AddCompleteToActivities
 rails g migration ChangePositionToPriority
+rails g scaffold User name:string email:string password:string
+rails g migration AddUserToActivities user:references
 
 TO-D0
 
