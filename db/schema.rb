@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150620185532) do
     t.integer  "priority"
   end
 
+  add_index "activities", ["category_id"], name: "index_activities_on_category_id"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
