@@ -30,7 +30,7 @@ $(function() {
     function() {
       item_id = this.id
       $.ajax({
-        url: "https://agile-anchorage-4715.herokuapp.com/complete/" + item_id,
+        url: "/complete/" + item_id,
         type: "PATCH",
       });
     }
@@ -69,7 +69,7 @@ ready = function(){
     // send the updated order via ajax
     $.ajax({
       type: "PUT",
-      url: "https://agile-anchorage-4715.herokuapp.com/activities/sort",
+      url: "/activities/sort",
       data: { order: updated_order }
     });
   });
