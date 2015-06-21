@@ -30,7 +30,7 @@ $(function() {
     function() {
       item_id = this.id
       $.ajax({
-        url: "/complete/" + item_id,
+        url: "complete/" + item_id,
         type: "PATCH",
       });
     }
@@ -69,7 +69,7 @@ ready = function(){
     // send the updated order via ajax
     $.ajax({
       type: "PUT",
-      url: "/activities/sort",
+      url: "activities/sort",
       data: { order: updated_order }
     });
   });
