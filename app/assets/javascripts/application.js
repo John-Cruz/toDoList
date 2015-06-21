@@ -16,7 +16,6 @@
 //= require foundation
 //= require_tree .
 
-var root = location.protocol + '//' + location.host;
 
 window.setInterval('ajaxCall()', 3000);
 
@@ -31,7 +30,7 @@ $(function() {
     function() {
       item_id = this.id
       $.ajax({
-        url: root + "/complete/" + item_id,
+        url: "https://agile-anchorage-4715.herokuapp.com/complete/" + item_id,
         type: "PATCH",
       });
     }
@@ -70,7 +69,7 @@ ready = function(){
     // send the updated order via ajax
     $.ajax({
       type: "PUT",
-      url: root + "/activities/sort",
+      url: "https://agile-anchorage-4715.herokuapp.com/activities/sort",
       data: { order: updated_order }
     });
   });
