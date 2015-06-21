@@ -16,6 +16,7 @@
 //= require foundation
 //= require_tree .
 
+var root = location.protocol + '//' + location.host;
 
 window.setInterval('ajaxCall()', 3000);
 
@@ -30,7 +31,7 @@ $(function() {
     function() {
       item_id = this.id
       $.ajax({
-        url: "http://localhost:3000/complete/" + item_id,
+        url: root + "/complete/" + item_id,
         type: "PATCH",
       });
     }
@@ -69,7 +70,7 @@ ready = function(){
     // send the updated order via ajax
     $.ajax({
       type: "PUT",
-      url: '/activities/sort',
+      url: root + "/activities/sort",
       data: { order: updated_order }
     });
   });
