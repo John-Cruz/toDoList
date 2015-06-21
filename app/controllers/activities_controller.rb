@@ -35,13 +35,9 @@ class ActivitiesController < ApplicationController
 
   # POST /activities
   def create
-    @activity = Activity.new(activity_params)
-
-    if @activity.save
-      redirect_to root_path, notice: 'Activity was successfully created.'
-    else
-      render :new
-    end
+    @activity = Activity.create!(name: params[:activity][:name],
+        due_date: params[:activity][:due_date], description: params[:activity][:description],
+        priority: params[:activity][:priority], category_id: params[:activity][:category_id])
   end
 
   # PATCH/PUT /activities/1
