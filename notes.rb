@@ -17,7 +17,6 @@ TO-D0
 
   styling
     # index page
-      modal for new activity
       side list for completed tasks
 
   AJAX (only on the lists page)
