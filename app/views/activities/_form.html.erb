@@ -12,16 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.datetime_select :due_date %>
+    <%= f.label :due_date %>
+    <%= f.datetime_select :due_date, :ampm => true, :minute_step => 10 %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -30,6 +26,10 @@
   <div class="field">
     <%= f.label :priority %><br>
     <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, include_blank: true) %>
   </div>
   <div class="actions">
     <%= f.submit %>

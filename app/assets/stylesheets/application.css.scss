@@ -19,7 +19,10 @@
 .activity{
    background: #D8D8D8;
    border: 1px solid black;
-   margin: 5px !important;
+   margin-bottom: 5px !important;
+   margin-left: 5px !important;
+   margin-right: 5px !important;
+
  }
 
  .sortable-placeholder {
@@ -37,4 +40,25 @@ ul{
   list-style-type: none;
   padding:0;
   margin:0;
+}
+
+.fa.fa-check-square-o{
+  font-size: 20px;
+}
+
+.fa.fa-plus{
+  font-size: 20px;
+}
+
+.button.tiny {
+  padding: 0.5rem 1.8rem 0.5rem 1rem !important;
+  font-size: .9rem !important;
+  margin-right: 0.2rem !important;
+  margin-top: 0.2rem !important;
+}
+
+.button.small{
+  padding: 0.4rem 0.5rem 0.5rem 0.5rem !important;
+  margin-right: 0.5rem !important;
+  font-size: .9rem !important;
 }

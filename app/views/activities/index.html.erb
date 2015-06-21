@@ -1,5 +1,6 @@
 <div id="notice"><%= notice %></div>
 
+
 <div class="row">
   <div class="large-12 columns">
     <nav class="top-bar" data-topbar>
@@ -12,8 +13,9 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <li class="divider"></li>
-            <%= link_to 'New Activity', new_activity_path, class: "button tiny success" %>
+            <a class="radius button small success" data-reveal-id="newActivityModal",data-toggle="modal">
+              <i class="fa fa-plus" title="New Activity"></i>
+            </a>
         </ul>
       </section>
     </nav>
@@ -50,10 +52,12 @@
         <ul>
           <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y - %l:%M%p ") %></li>
           <li>Days Active:  </li>
-          <li><%= link_to 'Edit Task', edit_activity_path(activity), class: "button tiny"  %> </li>
+          <li><%= link_to 'Edit Task', edit_activity_path(activity), class: "radius button tiny"  %> </li>
         </ul>
       </div>
-      <div class="large-2 columns small-3 button tiny success" id="<%= activity.id %>">Mark Complete</div>
+      <div class="large-1 columns small-1 radius button tiny success" id="<%= activity.id %>">
+        <%= '<i class="fa fa-check-square-o" title="Complete"></i>'.html_safe %>
+      </div>
     </div>
   <% end %>
 </div>

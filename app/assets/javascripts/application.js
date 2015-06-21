@@ -18,7 +18,7 @@
 
 
 $(function() {
-  $(".large-2.columns.small-3.button.tiny.success").click(
+  $(".large-1.columns.small-1.button.tiny.success").click(
     function() {
       item_id = this.id
       $.ajax({
