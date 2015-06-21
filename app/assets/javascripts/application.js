@@ -30,7 +30,7 @@ $(function() {
     function() {
       item_id = this.id
       $.ajax({
-        url: "http://localhost:3000/complete/" + item_id,
+        url: "/complete/" + item_id,
         type: "PATCH",
       });
     }
