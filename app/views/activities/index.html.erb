@@ -1,5 +1,6 @@
 <div id="notice"><%= notice %></div>
 
+<%= render partial: 'new_activity_modal', locals: {activity: @activity} %>
 
 <div class="row">
   <div class="large-12 columns">
@@ -13,9 +14,8 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-            <a class="radius button small success" data-reveal-id="newActivityModal",data-toggle="modal">
-              <i class="fa fa-plus" title="New Activity"></i>
-            </a>
+          <%= link_to '<i class="fa fa-plus" title="New Activity"></i>'.html_safe,
+              new_activity_path, class: "radius button small success"%>
         </ul>
       </section>
     </nav>
@@ -28,6 +28,7 @@
     <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
     <h5>User Name Placeholder</h5>
       <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true"><br>
+
       <section class="section">
         <h5 class="title"><a href="#">Recreation</a></h5>
       </section>
@@ -44,35 +45,50 @@
   </div>
 </div>
 
+
 <div class="large-6 columns sortable inline-list">
   <% @activities.each do |activity| %>
-    <div class="row activity" data-id="<%= activity.id %>">
-      <div class="large-10 columns ">
-        <p><strong><%= activity.name %> : </strong> <%= activity.description %></p>
-        <ul>
-          <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y - %l:%M%p ") %></li>
-          <li>Days Active:  </li>
-          <li><%= link_to 'Edit Task', edit_activity_path(activity), class: "radius button tiny"  %> </li>
-        </ul>
+    <% unless activity.complete %>
+      <div class="row activity" data-id="<%= activity.id %>">
+        <div class="large-10 columns ">
+          <p><strong><%= activity.name %> : </strong> <%= activity.description %></p>
+          <ul>
+            <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y") %></li>
+            <li>Created <%= distance_of_time_in_words(activity.created_at, Time.now) %> ago </li>
+            <li>
+              <div class="large-1 columns small-1 radius button small success" id="<%= activity.id %>">
+                <%= '<i class="fa fa-check-square-o" title="Complete"></i>'.html_safe %>
+              </div>
+              | <%= link_to '<i class="fa fa-edit" title="Edit"></i>'.html_safe,
+                    edit_activity_path(activity), class: "radius button small" %> |
+              <%= link_to '<i class="fa fa-remove" title="Delete"></i>'.html_safe,
+                  activity, method: :delete, class: "radius button small alert",
+                  data: { confirm: 'Are you sure?' } %>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="large-1 columns small-1 radius button tiny success" id="<%= activity.id %>">
-        <%= '<i class="fa fa-check-square-o" title="Complete"></i>'.html_safe %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
+
+<aside class="large-3 columns hide-for-small">
+  <h5>Completed Tasks:</h5>
+    <ul>
+    <% @activities.each do |activity| %>
+      <% if activity.complete %>
+        <li><i class="fa fa-check" title="Complete"></i> <strong><%= activity.name %></strong></li>
+      <% end %>
+    <% end %>
+    </ul>
+</aside>
 
 <footer class="row">
   <div class="large-12 columns">
     <hr/>
     <div class="row">
       <div class="large-5 columns">
-        <p>© Copyright no one at all.</p>
-      </div>
-      <div class="large-7 columns">
-        <ul class="inline-list right">
-          <li><a href="#">Section 1</a></li>
-        </ul>
+        <p>© John-Cruz 2015</p>
       </div>
     </div>
   </div>

@@ -17,13 +17,18 @@
  */
 
 .activity{
-   background: #D8D8D8;
-   border: 1px solid black;
-   margin-bottom: 5px !important;
-   margin-left: 5px !important;
-   margin-right: 5px !important;
+  background: #D8D8D8;
+  border: 1px solid black;
+  margin-bottom: 5px !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
 
- }
+}
+
+aside{
+  background: #43AC6A;
+  border: 1px solid black;
+}
 
  .sortable-placeholder {
   border: 1px dashed #CCC;
@@ -47,6 +52,14 @@ ul{
 }
 
 .fa.fa-plus{
+  font-size: 20px;
+}
+
+.fa.fa-edit{
+  font-size: 20px;
+}
+
+.fa.fa-remove{
   font-size: 20px;
 }
 

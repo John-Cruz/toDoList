@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :due_date %>
-    <%= f.datetime_select :due_date, :ampm => true, :minute_step => 10 %>
+    <%= f.date_field :due_date, :ampm => true, :minute_step => 10 %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -32,6 +32,6 @@
     <%= f.collection_select(:category_id, Category.all, :id, :name, include_blank: true) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save Activity", class: "radius button small success" %>
   </div>
 <% end %>

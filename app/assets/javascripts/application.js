@@ -17,8 +17,16 @@
 //= require_tree .
 
 
+window.setInterval('ajaxCall()', 3000);
+
+function ajaxCall() {
+  $.ajax({
+    url: "http://localhost:3000/",
+  });
+}
+
 $(function() {
-  $(".large-1.columns.small-1.button.tiny.success").click(
+  $(".large-1.columns.small-1.button.small.success").click(
     function() {
       item_id = this.id
       $.ajax({

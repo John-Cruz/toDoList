@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   def index
     @activities = Activity.all
+    @activity = Activity.new
   end
 
   def sort
@@ -12,7 +13,6 @@ class ActivitiesController < ApplicationController
     end
     render :nothing => true
   end
-
 
   def complete
     activity = Activity.find(params[:id])
@@ -38,7 +38,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
 
     if @activity.save
-      redirect_to @activity, notice: 'Activity was successfully created.'
+      redirect_to root_path, notice: 'Activity was successfully created.'
     else
       render :new
     end
@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
   # PATCH/PUT /activities/1
   def update
     if @activity.update(activity_params)
-      redirect_to @activity, notice: 'Activity was successfully updated.'
+      redirect_to root_path, notice: 'Activity was successfully updated.'
     else
       render :edit
     end

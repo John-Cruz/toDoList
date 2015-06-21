@@ -23,7 +23,7 @@ class ActivitiesControllerTest < ActionController::TestCase
           name: @activity.name, priority: @activity.priority }
     end
 
-    assert_redirected_to activity_path(assigns(:activity))
+    assert_redirected_to root_path
   end
 
   test "should show activity" do
@@ -40,7 +40,7 @@ class ActivitiesControllerTest < ActionController::TestCase
     patch :update, id: @activity, activity: { category_id: @activity.category_id,
         description: @activity.description, due_date: @activity.due_date,
         name: @activity.name, priority: @activity.priority }
-    assert_redirected_to activity_path(assigns(:activity))
+    assert_redirected_to root_path
   end
 
   test "should destroy activity" do
