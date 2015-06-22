@@ -1,18 +1,5 @@
 # To-do App
 
-A to-do list app with drag-and-drop functionality. AJAX enables the following functions to occur without refreshing the webpage:
-
-Create new task
-Mark task complete
-Re-order tasks with 'Dragon-Drop'
-Additional Info
-
-Uses ranked-model gem for drag-and-drop ordering
-Styled with Bootstrap version 3.3.5 to make this app look "nice"
-ERD Diagram
-View this app on Heroku
-
-
 ## Description
 
 This is an app that allows users to create a list of To Do activities. Users can then drag and drop their activities in order to rearrange their priority.
