@@ -7,7 +7,7 @@ class Activity < ActiveRecord::Base
 
   validates :name, presence: true
 
-  validates :priority, presence: true, numericality: { only_integer: true }
+  validates :priority, numericality: { only_integer: true }
 
   default_scope { order("priority ASC") }
 
