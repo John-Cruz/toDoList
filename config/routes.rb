@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :users
+
   root 'activities#index'
+
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+  post 'sessions/create'
+
+  resources :users
 
   resources :activities do
     put :sort, on: :collection
