@@ -2,6 +2,9 @@ rails g scaffold Activity category:references name:string due_date:datetime desc
 rails g model Category name:string
 rails g migration AddCompleteToActivities
 rails g migration ChangePositionToPriority
+rails g scaffold User name:string email:string password:string
+rails g migration AddUserToActivities user:references
+rails g controller Sessions new create destroy
 
 TO-D0
 
@@ -20,8 +23,8 @@ TO-D0
       side list for completed tasks
 
   AJAX (only on the lists page)
-    dragon drop
-    activity complete
+    # dragon drop
+    # activity complete
 
   javascript
 

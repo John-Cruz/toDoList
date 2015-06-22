@@ -1,0 +1,19 @@
+<%= form_tag sessions_create_path do %>
+  <div class="user-sign-in-form-container">
+    <form class="user-sign-in-form">
+      <fieldset class="fieldset">
+        <div class="field">
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </div>
+        <div class="login-button-container">
+          <%= submit_tag "Login" %>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+<% end %>

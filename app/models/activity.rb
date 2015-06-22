@@ -1,15 +1,14 @@
 class Activity < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :user, inverse_of: :activities
+
+  belongs_to :category, inverse_of: :activities
+
+  validates :user_id, presence: true
 
   validates :name, presence: true
 
-  validates :due_date, format: {with: /\d{4}-\d\d-\d\d \d\d:\d\d:\d\d/}, allow_blank: true
-
-  validates :priority, presence: true, numericality: true
-
-  validates :priority, numericality: { only_integer: true }
+  validates :priority, presence: true, numericality: { only_integer: true }
 
   default_scope { order("priority ASC") }
-
 
 end

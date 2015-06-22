@@ -1,4 +1,13 @@
 class ActivitiesController < ApplicationController
+
+  include ApplicationHelper
+
+  before_action :logged_in
+
+  before_action :activity_owner, only: [:show, :edit, :update, :destroy, :complete]
+
+  before_action :set_user
+
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   # GET /activities
@@ -56,7 +65,7 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1
   def destroy
     @activity.destroy
-    redirect_to activities_url, notice: 'Activity was successfully destroyed.'
+    redirect_to root_path, notice: 'Activity was successfully destroyed.'
   end
 
   private
@@ -65,8 +74,12 @@ class ActivitiesController < ApplicationController
       @activity = Activity.find(params[:id])
     end
 
+    def set_user
+      @user = User.find(session[:user_id]) rescue nil
+    end
+
     # Only allow a trusted parameter "white list" through.
     def activity_params
-      params.require(:activity).permit(:category_id, :name, :due_date, :description, :priority, :order)
+      params.require(:activity).permit(:user_id, :category_id, :name, :due_date, :description, :priority, :order)
     end
 end
