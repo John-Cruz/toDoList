@@ -5,10 +5,6 @@ class Activity < ActiveRecord::Base
 
   validates :due_date, format: {with: /\d{4}-\d\d-\d\d \d\d:\d\d:\d\d/}, allow_blank: true
 
-  validates :priority, presence: true, numericality: true
-
-  validates :priority, numericality: { only_integer: true }
-
   default_scope { order("priority ASC") }
 
 

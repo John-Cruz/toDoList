@@ -24,10 +24,6 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :priority %><br>
-    <%= f.number_field :priority, min: 1 %>
-  </div>
-  <div class="field">
     <%= f.label :category_id %><br>
     <%= f.collection_select(:category_id, Category.all, :id, :name, include_blank: true) %>
   </div>

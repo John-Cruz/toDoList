@@ -37,25 +37,20 @@
       </section>
     </div>
   </div>
-</div>
-
-<div class="large-6 columns sortable inline-list">
-  <div id="all-activities">
-    <% @activities.each do |activity| %>
-      <% unless activity.complete %>
-        <div class="row activity" data-id="<%= activity.id %>">
-          <%= render partial: "activity", locals: {activity: activity} %>
-        </div>
-      <% end %>
-    <% end %>
+  <div>
+    <%= link_to '<i class="fa fa-plus" title="New Activity"></i> New Activity'.html_safe,
+        new_activity_path, class: "radius button small success", remote: true %>
   </div>
-
   <div id="new-form-container"></div>
-  <%= link_to '<i class="fa fa-plus" title="New Activity"></i> New Activity'.html_safe,
-      new_activity_path, class: "radius button small success", remote: true %>
 </div>
 
-<aside class="large-3 columns hide-for-small">
+<div class="large-6 columns sortable inline-list" id="all-activities">
+  <% @activities.each do |activity| %>
+    <%= render partial: "activity", locals: {activity: activity} %>
+  <% end %>
+</div>
+
+<aside class="large-3 columns hide-for-small" id="complete-activities">
   <h5>Completed Tasks:</h5>
     <ul>
     <% @activities.each do |activity| %>
