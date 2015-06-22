@@ -12,19 +12,13 @@
           </h1>
         </li>
       </ul>
+
       <section class="top-bar-section">
         <ul class="right">
           <li>
             <%= link_to '<i class="fa fa-power-off" title="Log Out"></i>'.html_safe,
                 logout_path, class: "radius button small success" %>
           </li>
-          <li> | </li>
-          <li>
-            <%= link_to '<i class="fa fa-plus" title="New Activity"></i>'.html_safe,
-                new_activity_path, class: "radius button small success"%>
-          </li>
-          <li> | </li>
-
         </ul>
       </section>
     </nav>
@@ -52,38 +46,20 @@
       </section>
     </div>
   </div>
+  <div>
+    <%= link_to '<i class="fa fa-plus" title="New Activity"></i> New Activity'.html_safe,
+        new_activity_path, class: "radius button small success", remote: true %>
+  </div>
+  <div id="new-form-container"></div>
 </div>
 
-
-<div class="large-6 columns sortable inline-list">
+<div class="large-6 columns sortable inline-list" id="all-activities">
   <% @activities.each do |activity| %>
-    <% unless activity.complete %>
-      <div class="row activity" data-id="<%= activity.id %>">
-        <div class="large-10 columns ">
-          <p><strong><%= activity.name %> : </strong> <%= activity.description %></p>
-          <ul>
-            <% unless activity.due_date.blank? %>
-              <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y") %></li>
-            <% end %>
-            <li>Created <%= distance_of_time_in_words(activity.created_at, Time.now) %> ago </li>
-            <li>
-              <div class="large-1 columns small-1 radius button small success" id="<%= activity.id %>">
-                <%= '<i class="fa fa-check-square-o" title="Complete"></i>'.html_safe %>
-              </div>
-              | <%= link_to '<i class="fa fa-edit" title="Edit"></i>'.html_safe,
-                    edit_activity_path(activity), class: "radius button small" %> |
-              <%= link_to '<i class="fa fa-remove" title="Delete"></i>'.html_safe,
-                  activity, method: :delete, class: "radius button small alert",
-                  data: { confirm: 'Are you sure?' } %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: "activity", locals: {activity: activity} %>
   <% end %>
 </div>
 
-<aside class="large-3 columns hide-for-small">
+<aside class="large-3 columns hide-for-small" id="complete-activities">
   <h5>Completed Tasks:</h5>
     <ul id="complete">
     <% @activities.each do |activity| %>

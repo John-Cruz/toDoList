@@ -1,0 +1,23 @@
+<% unless activity.complete %>
+  <div class="row activity" data-id="<%= activity.id %>">
+    <div class="large-10 columns ">
+      <p><strong><%= activity.name %>: </strong> <%= activity.description %></p>
+      <ul>
+        <% unless activity.due_date.blank? %>
+          <li>Due Date: <%= activity.due_date.strftime("%b %e, %Y") %></li>
+        <% end %>
+        <li>Created <%= distance_of_time_in_words(activity.created_at, Time.now) %> ago </li>
+        <li>
+          <div class="large-1 columns small-1 radius button small success" id="<%= activity.id %>">
+            <%= '<i class="fa fa-check-square-o" title="Complete"></i>'.html_safe %>
+          </div>
+          <%= link_to '<i class="fa fa-edit" title="Edit"></i>'.html_safe,
+                edit_activity_path(activity), class: "radius button small" %>
+          <%= link_to '<i class="fa fa-remove" title="Delete"></i>'.html_safe,
+              activity, method: :delete, class: "radius button small alert",
+              data: { confirm: 'Are you sure?' } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>

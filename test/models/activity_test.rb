@@ -34,4 +34,5 @@ class ActivityTest < ActiveSupport::TestCase
     refute activity1.save
     assert activity2.save
   end
+
 end
