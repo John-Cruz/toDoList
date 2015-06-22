@@ -47,7 +47,8 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.create!(name: params[:activity][:name],
         due_date: params[:activity][:due_date], description: params[:activity][:description],
-        priority: params[:activity][:priority], category_id: params[:activity][:category_id])
+        priority: params[:activity][:priority], category_id: params[:activity][:category_id],
+        user_id: session[:user_id])
   end
 
   # PATCH/PUT /activities/1
