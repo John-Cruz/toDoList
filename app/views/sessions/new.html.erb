@@ -10,12 +10,11 @@
           <%= label_tag :password %>
           <%= password_field_tag :password %>
         </div>
-        <div>
-          <%= submit_tag "Login" %>
+        <div style="text-align:center">
+          <%= submit_tag "Login", class: "radius button expand success"%>
+          <%= link_to "Sign up", new_user_path, class: "radius button expand alert" %>
         </div>
       </fieldset>
     </form>
   </div>
 <% end %>
-
-<%= link_to "Sign up", new_user_path %>

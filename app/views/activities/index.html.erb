@@ -14,9 +14,17 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <%= link_to "Logout", logout_path %>
-          <%= link_to '<i class="fa fa-plus" title="New Activity"></i>'.html_safe,
-              new_activity_path, class: "radius button small success"%>
+          <li>
+            <%= link_to '<i class="fa fa-power-off" title="Log Out"></i>'.html_safe,
+                logout_path, class: "radius button small success" %>
+          </li>
+          <li> | </li>
+          <li>
+            <%= link_to '<i class="fa fa-plus" title="New Activity"></i>'.html_safe,
+                new_activity_path, class: "radius button small success"%>
+          </li>
+          <li> | </li>
+          
         </ul>
       </section>
     </nav>
