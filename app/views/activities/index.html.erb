@@ -24,7 +24,7 @@
                 new_activity_path, class: "radius button small success"%>
           </li>
           <li> | </li>
-          
+
         </ul>
       </section>
     </nav>
@@ -85,10 +85,10 @@
 
 <aside class="large-3 columns hide-for-small">
   <h5>Completed Tasks:</h5>
-    <ul>
+    <ul id="complete">
     <% @activities.each do |activity| %>
       <% if activity.complete %>
-        <li><i class="fa fa-check" title="Complete"></i> <strong><%= activity.name %></strong></li>
+        <%= render partial: 'activities/complete', locals: {activity: activity} %>
       <% end %>
     <% end %>
     </ul>

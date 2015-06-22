@@ -1,1 +1,2 @@
 $("#<%= @id %>").closest(".row").hide();
+$("#complete").append("<%= j(render partial: 'activities/complete', locals: {activity: @activity}) %>")

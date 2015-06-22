@@ -12,9 +12,9 @@ class ActivitiesController < ApplicationController
 
   # GET /activities
   def index
-    @activities = Activity.all
+    @user = User.find(session[:user_id])
+    @activities = Activity.where(user_id: @user.id)
     @activity = Activity.new
-    @user = User.find_by_id(session[:user_id])
   end
 
   def sort
@@ -25,8 +25,8 @@ class ActivitiesController < ApplicationController
   end
 
   def complete
-    activity = Activity.find(params[:id])
-    activity.update(complete: true)
+    @activity = Activity.find(params[:id])
+    @activity.update(complete: true)
     @id = params[:id]
   end
 
@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
   # POST /activities
   def create
     @activity = Activity.new(activity_params)
-
+    @activity.user_id = session[:user_id]
     if @activity.save
       redirect_to root_path, notice: 'Activity was successfully created.'
     else
