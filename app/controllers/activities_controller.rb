@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     @activity = Activity.new
+    @user = User.find_by_id(session[:user_id])
   end
 
   def sort
