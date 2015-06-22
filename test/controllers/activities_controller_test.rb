@@ -23,6 +23,10 @@ class ActivitiesControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
+  def login
+    assert_redirected_to login_path
+  end
+
   def denied
     assert_equal "ACCESS DENIED", flash[:notice]
   end
@@ -45,7 +49,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   test "should not get index if logged out" do
     nil_setup
     get :index
-    root
+    login
     must_sign_in
   end
 
@@ -58,7 +62,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   test "should not get new if logged out" do
     nil_setup
     get :new
-    root
+    login
     must_sign_in
   end
 
@@ -79,14 +83,14 @@ class ActivitiesControllerTest < ActionController::TestCase
         description: @activity.description, due_date: @activity.due_date,
         name: @activity.name, priority: @activity.priority }
 
-    root
+    login
     must_sign_in
   end
 
   test "should not show activity if signed out" do
     nil_setup
     get :show, id: @activity
-    root
+    login
     must_sign_in
   end
 
@@ -106,7 +110,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   test "should not get edit if signed out" do
     nil_setup
     get :edit, id: @activity
-    root
+    login
     must_sign_in
   end
 
@@ -131,7 +135,7 @@ class ActivitiesControllerTest < ActionController::TestCase
         name: @activity.name, priority: @activity.priority, user_id: @user1.id
     }
 
-    root
+    login
     must_sign_in
   end
 
@@ -163,7 +167,7 @@ class ActivitiesControllerTest < ActionController::TestCase
     nil_setup
     delete :destroy, id: @activity
 
-    root
+    login
     must_sign_in
   end
 
@@ -189,7 +193,7 @@ class ActivitiesControllerTest < ActionController::TestCase
     nil_setup
     patch :complete, id: @activity
 
-    root
+    login
     must_sign_in
   end
 

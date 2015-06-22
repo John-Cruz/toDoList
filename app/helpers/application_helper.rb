@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def logged_in
     if session[:user_id] == nil
-      redirect_to root_path, notice: "Must sign in :p"
+      redirect_to login_path, notice: "Must sign in :p"
     end
   end
 
