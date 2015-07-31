@@ -15,7 +15,9 @@
  *= require_tree .
  *= require foundation
  */
-
+ul.right {
+  margin-right: 1% !important;
+}
 .activity{
   background: #D8D8D8;
   border: 1px solid black;
